@@ -25,7 +25,8 @@ const FeedbackForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("http://localhost:5000/submit-feedback", {
+      const baseUrl = process.env.REACT_APP_BASE_URL;
+      const res = await fetch(`${baseUrl}/submit-feedback`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

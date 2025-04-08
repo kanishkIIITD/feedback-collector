@@ -10,7 +10,8 @@ function App() {
 
   const fetchFeedbacks = async () => {
     try {
-      const res = await fetch("http://localhost:5000/feedbacks");
+      const baseUrl = process.env.REACT_APP_BASE_URL;
+      const res = await fetch(`${baseUrl}/feedbacks`);
       const data = await res.json();
       setFeedbacks(data);
     } catch (error) {
